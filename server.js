@@ -28,7 +28,7 @@ app.use(express.static('public'));
 app.use(volleyball);
 app.use(cors({
   origin: "http://localhost:3000",
-  methods: ["GET", "POST", "DELETE", "OPTIONS"],
+  methods: ["GET", "POST", "DELETE", "PUT", "OPTIONS"],
   credentials: true,
 }));
 
@@ -42,7 +42,7 @@ app.use((err, req, res, next) => {
 
 // sync + listen port
 
-const PORT = 5432;
+const PORT = process.env.PORT;
 
 db.sync({ force: false })
   .then(() => {
