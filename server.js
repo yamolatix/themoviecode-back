@@ -22,11 +22,15 @@ const app = express();
 //parsing middleware.
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
-app.use(cors());
 app.use(cookieParser());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(express.static('public'));
 app.use(volleyball);
+app.use(cors({
+  origin: "http://localhost:3000",
+  methods: ["GET", "POST", "DELETE", "OPTIONS"],
+  credentials: true,
+}));
 
 // routes
 app.use("/api", routes);
@@ -38,7 +42,7 @@ app.use((err, req, res, next) => {
 
 // sync + listen port
 
-const PORT = process.env.PORT || 3001;
+const PORT = 5432;
 
 db.sync({ force: false })
   .then(() => {
