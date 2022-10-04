@@ -27,8 +27,8 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(express.static('public'));
 app.use(volleyball);
 app.use(cors({
-  origin: "https://themoviecode-front.vercel.app/",
-  methods: ["GET", "POST", "DELETE", "PUT", "OPTIONS"],
+  origin: "https://themoviecode-front.vercel.app",
+  methods: ["GET", "POST", "DELETE", "OPTIONS"],
   credentials: true,
 }));
 
