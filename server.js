@@ -5,7 +5,7 @@ const express = require("express");
 require("dotenv").config();
 
 // Middelwares.
-const cors = require("cors");
+const cors = require('cors');
 const cookieParser = require("cookie-parser");
 const bodyParser = require('body-parser');
 const volleyball = require("volleyball");
@@ -27,7 +27,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(express.static('public'));
 app.use(volleyball);
 app.use(cors({
-  origin: "https://themoviecode-front.vercel.app",
+  origin: "https://themoviecode.vercel.app/",
   methods: ["GET", "POST", "DELETE", "OPTIONS"],
   credentials: true,
 }));
