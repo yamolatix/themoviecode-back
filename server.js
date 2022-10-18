@@ -28,9 +28,10 @@ app.use(express.static('public'));
 app.use(volleyball);
 app.use(cors({
   origin: "https://themoviecode.vercel.app/",
-  methods: ["GET", "POST", "DELETE", "OPTIONS"],
   credentials: true,
-}));
+  methods: ['GET', 'POST', 'DELETE', 'OPTIONS'],
+  header: 'Origin, X-Requested-With, Content-Type, Accept'
+}))
 
 // routes
 app.use("/api", routes);
